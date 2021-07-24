@@ -1,3 +1,8 @@
+
+# The data set used in this example is from http://archive.ics.uci.edu/ml/datasets/Wine+Quality
+# P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis.
+# Modeling wine preferences by data mining from physicochemical properties. In Decision Support Systems, Elsevier, 47(4):547-553, 2009.
+
 import os
 import warnings
 import sys
@@ -13,9 +18,9 @@ import mlflow.sklearn
 
 import logging
 
-
 logging.basicConfig(level=logging.WARN)
 logger = logging.getLogger(__name__)
+
 
 def eval_metrics(actual, pred):
     rmse = np.sqrt(mean_squared_error(actual, pred))
@@ -27,6 +32,7 @@ def eval_metrics(actual, pred):
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")
     np.random.seed(40)
+    version = 'v2'
 
     # Read the wine-quality csv file from the URL
     csv_url = (
@@ -83,6 +89,7 @@ if __name__ == "__main__":
         else:
             mlflow.sklearn.log_model(lr, "model")
 
-
-
-
+        mlflow.log_param('data_url', csv_url)
+        mlflow.log_param('data_version', version)
+        mlflow.log_param('input_cols', data.shape[1])
+        mlflow.log_param('input_rows', data.shape[0])
