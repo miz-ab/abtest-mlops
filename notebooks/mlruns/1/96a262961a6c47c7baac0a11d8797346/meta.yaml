@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/user/PycharmProjects/abtest-mlops/notebooks/mlruns/1/96a262961a6c47c7baac0a11d8797346/artifacts
+end_time: 1627142804610
+entry_point_name: ''
+experiment_id: '1'
+lifecycle_stage: active
+name: ''
+run_id: 96a262961a6c47c7baac0a11d8797346
+run_uuid: 96a262961a6c47c7baac0a11d8797346
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1627142804465
+status: 3
+tags: []
+user_id: user
